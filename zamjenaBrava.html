@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zamjena brava na protuprovalnim vratima</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" sizes="16x16">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Osnovni stilovi za sve ekrane */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Glavni kontejner sa slikom i tekstom */
+        .sve {
+            display: flex;
+            padding-left: 100px;
+            padding-right: 20px;
+        }
+
+        /* Podjela za prvi dio */
+        .prviDio {
+            width: 75%;
+            margin-right: 25%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Div za sliku */
+        .slika img {
+            width: 740px;
+            height: 438px;
+            display: block;
+        }
+
+        /* Div za tekst */
+        .text {
+            font-size: 15px;
+            line-height: 1.6;
+            margin: 15px 0px 0px;
+            padding: 0px 0px 14px;
+            text-align: justify;
+            width: 740px;
+            height: 438px;
+        }
+        /* Stil za paragraf */
+        .text p {
+            margin: 0 0 14px 0;
+        }
+        .prazanDiv {
+            height: 80px;
+        }
+        
+
+        /* Media Queries za tablete*/
+        @media only screen and (max-width: 1024px) {
+            /* Za male ekrane, slike će zauzimati 100% širine */
+            .sve {
+                flex-direction: column; /* Svi elementi ispod drugog */
+                padding-left: 0;
+            }
+
+            .prviDio {
+                width: 100%;
+                margin-right: 0;
+            }
+
+            .slika img {
+                width: 100%; /* Slika će zauzeti 100% širine svog roditelja */
+                height: auto; /* Visina će biti automatski prilagođena */
+                margin: 10px;
+            }
+
+            .text {
+                width: 100%; /* Tekst će zauzeti 100% širine */
+                height: auto; /* Visina teksta je sada automatska */
+                margin: 10px;
+            }
+        }
+
+
+        /* Media Queries za mobilne uređaje */
+        @media only screen and (max-width: 768px) {
+            /* U manjem formatu smanjujemo fontove i margine */
+            .text {
+                font-size: 13px;
+                margin: 10px 0;
+            }
+
+            .footer {
+                font-size: 12px; /* Manji font za footer */
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+         <!-- Prvi red: Logo i informacije -->
+         <div class="header-row">
+            <div class="logo">
+                <a href="index.html"> <img src="images/skapi_logo_2.png" alt="Skapi Logo"></a>
+            </div>
+    
+    
+            <div class="info-container">
+                <!-- Lokacija -->
+                <div class="info-section">
+                    <img src="images/lokacija.png" alt="GPS Lokacija">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Lokacija</span></div>
+                        <div><span style="color: rgb(120,120,120);">RK Sjenjak pp. 9 suteren</span></div>
+                    </div>
+                </div>
+    
+                <!-- Radno vrijeme -->
+                <div class="info-section">
+                    <img src="images/radno_vrijeme.png" alt="Radno vrijeme">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Radno vrijeme:</span></div>
+                        <div><span style="color: rgb(120,120,120);">08:00-17:00</span></div>
+                    </div>
+                </div>
+    
+                <!-- Telefon -->
+                <div class="info-section">
+                    <img src="images/poziv.png" alt="Pozovite nas">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Pozovite nas</span></div>
+                        <div><span style="color: rgb(120,120,120);">+38761164096</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Drugi red: Padajući meni sa 8 divova -->
+        <div class="header-row">
+            <div class="menu-item">
+                <a href="index.html">🏠Home</a>
+            </div>
+            <div class="menu-item">
+                <a href="onama.html">O Nama</a>
+            </div>
+            <div class="menu-item">
+                <a href="galerija.html">Galerija Ugrađenih Vrata</a>
+            </div>
+            <div class="menu-item">
+                <a href="servis.html">Servis</a>
+            </div>
+            <div class="menu-item">
+                <a href="skapi.html">❤️Skapi Vrata</a>
+            </div>
+            <div class="menu-item">
+                <a href="novosti.html">Novosti</a>
+            </div>
+            <div class="menu-item">
+                <a href="kontakt.html">Kontakt</a>
+            </div>
+            <div class="menu-item">
+                <button class="facebook-btn" onclick="window.location.href='https://www.facebook.com/skapivrata';">Facebook</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="uvodniDio">
+        <div class="kontakt"><h2 id="page-title">Zamjena brava na protuprovalnim vratima</h2></div>
+        <div class="home"><a href="index.html">Home<a href="novosti.html">Post</a> </div>
+        
+    </div>
+
+    <!-- Prazan div-->
+    <div class="prazanDiv"></div>
+
+    <!--Div za ostatak stranice -->
+    <div class="sve">
+        <div class="prviDio">
+            <!-- Div za sliku -->
+            <div class="slika">
+                <img src="images/Brave.jpg" alt="Slika se nije učitala">
+            </div>
+            <!-- Div za tekst -->
+            <div class="text">
+                <p>Osim ugradnje protuprovalnih vrata, otvaranje vrata, servis vrata i zamjena svih vrsta brava je usluga koju nudimo najčešće kroz
+                    <em>
+                        <strong style="color: #0a0a0a">hitne intervencije</strong>
+                    </em>. Iako, ne spada svaka usluga otvaranja vrata u hitne intervencije. O tome najviše ovisi koliko Vam je hitno potrebno otvoriti vrata.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="prazanDiv"></div>
+
+    <!-- Podnožje stranice-->
+    <footer class="footer">
+        <div class="left">Powered by Laufer</div>
+        <div class="center">© 2022 SKAPI All rights reserved.</div>
+    </footer>
+   
+</body>
+</html>

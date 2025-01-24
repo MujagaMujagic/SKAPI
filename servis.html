@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servis - Protuprovalna vrata SKAPI</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" sizes="16x16">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .prazanDiv {
+        height: 80px;
+        }
+
+        .slika img {
+            width: 1110px; /* Širina slike */
+            height: 615px; /* Visina slike */
+            padding: 0px 70px 40px;
+        }
+
+        /* Stil za h3 */
+        #h3 {
+            font-size: 32px;
+            color: #0a0a0a;
+            padding: 0px 70px 30px;
+            margin: 0px;
+        }
+
+        /* Stil za paragrafe */
+        .paragrafi {
+            color: #0a0a0a;
+            text-align: center; 
+            font-size: 13px;
+            margin: 0px 0px 20px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; /* Stil teksta */
+            padding: 0px 70px;
+        }
+
+        /* Glavni kontejner */
+        .textIslika {
+            display: flex; /* Omogućava horizontalni raspored slika i teksta */
+            gap: 20px; /* Razmak između slike i teksta */
+            padding: 0px 70px;
+        }
+
+        /* Stil za sliku */
+        .slika-nova img {
+            width: 470px; /* Širina slike */
+            height: 313px; /* Visina slike */
+        }
+
+        /* Stil za samo jedan paragraf */
+        #paragraf {
+            color: #0a0a0a;
+            text-align: left; 
+            font-size: 13px;
+            margin: 0px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        /* Media Queries za responzivnost */
+        @media (max-width: 1024px) {
+            .slika img {
+                width: 100%; /* Širina slike se prilagođava */
+                height: auto; /* Visina se automatski prilagođava */
+                padding: 0px 20px 20px; /* Smanjenje paddinga */
+            }
+
+            #h3 {
+                font-size: 28px; /* Smanjenje veličine fonta za h3 */
+                padding: 0px 20px 20px; /* Smanjenje paddinga */
+            }
+
+            .paragrafi {
+                font-size: 12px; /* Smanjenje veličine fonta za paragrafe */
+                padding: 0px 20px; /* Smanjenje paddinga */
+            }
+
+            .textIslika {
+                flex-direction: column; /* Promena rasporeda na vertikalni */
+                padding: 0px 20px; /* Smanjenje paddinga */
+            }
+
+        }
+        
+
+        @media (max-width: 768px) {
+            #h3 {
+                font-size: 24px; /* Dalje smanjenje veličine fonta za h3 */
+            }
+
+            .paragrafi {
+                font-size: 11px; /* Dalje smanjenje veličine fonta za paragrafe */
+                
+            }
+            
+        
+        }
+    
+    </style>
+</head>
+<body>
+    <header>
+         <!-- Prvi red: Logo i informacije -->
+         <div class="header-row">
+            <div class="logo">
+                <a href="index.html"> <img src="images/skapi_logo_2.png" alt="Skapi Logo"></a>
+            </div>
+    
+    
+            <div class="info-container">
+                <!-- Lokacija -->
+                <div class="info-section">
+                    <img src="images/lokacija.png" alt="GPS Lokacija">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Lokacija</span></div>
+                        <div><span style="color: rgb(120,120,120);">RK Sjenjak pp. 9 suteren</span></div>
+                    </div>
+                </div>
+    
+                <!-- Radno vrijeme -->
+                <div class="info-section">
+                    <img src="images/radno_vrijeme.png" alt="Radno vrijeme">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Radno vrijeme:</span></div>
+                        <div><span style="color: rgb(120,120,120);">08:00-17:00</span></div>
+                    </div>
+                </div>
+    
+                <!-- Telefon -->
+                <div class="info-section">
+                    <img src="images/poziv.png" alt="Pozovite nas">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Pozovite nas</span></div>
+                        <div><span style="color: rgb(120,120,120);">+38761164096</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Drugi red: Meni sa 8 divova -->
+        <div class="header-row">
+            <div class="menu-item">
+                <a href="index.html">🏠Home</a>
+            </div>
+            <div class="menu-item">
+                <a href="onama.html">O Nama</a>
+            </div>
+            <div class="menu-item">
+                <a href="galerija.html">Galerija Ugrađenih Vrata</a>
+            </div>
+            <div class="menu-item">
+                <a href="servis.html">Servis</a>
+            </div>
+            <div class="menu-item">
+                <a href="skapi.html">❤️Skapi Vrata</a>
+            </div>
+            <div class="menu-item">
+                <a href="novosti.html">Novosti</a>
+            </div>
+            <div class="menu-item">
+                <a href="kontakt.html">Kontakt</a>
+            </div>
+            <div class="menu-item">
+                <button class="facebook-btn" onclick="window.location.href='https://www.facebook.com/skapivrata';">Facebook</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="uvodniDio">
+        <div class="kontakt"><h1 id="page-title">Servisi</h1></div>
+        <div class="home"><a href="index.html">Home</a></div>
+        
+    </div>
+    <div class="prazanDiv"></div>
+
+    <!--Div za sliku -->
+    <div class="slika">
+        <img src="images/servis-sigurnosnih-vrata.jpg" alt="">
+    </div>
+    <!--Div za tekst-->
+    <div class="text">
+        <h3 id="h3">Servis protuprovalnih vrata</h3>
+        <p class="paragrafi">Imate već ugrađena protuprovalna vrata? Jeste li ih ikada servisirali?</p>
+        <p class="paragrafi">Protuprovalna vrata kao i većinu drugih uređaja potrebno je povremeno servisirati kako bi besprijekorno funkcionirala dugi niz godina. Ne čekajte da bude prekasno kako biste izbjegli nepotrebne dodatne troškove.</p>
+        <p class="paragrafi">Uz prodaju protuprovalnih vrata, kao prateću uslugu nudimo i SERVIS I ODRŽAVANJE PROTUPROVALNIH VRATA.</p>
+    </div>
+
+    <!--Div za tekst i sliku u jednom redu-->
+    <div class="textIslika">
+        <div class="slika-nova">
+            <img src="images/slika_za_naslovnu.jpg" alt="Slika naslovne strane">
+        </div>
+        <div class="text-novi">
+            <p id="paragraf">
+                Nudimo podešavanje i podmazivanje protuprovalnih vrata, servisiranje i zamjene cilindara i brava, zamjene panela, okova, lajsni, pragova i svih drugih eventualno dotrajalih dijelova.
+            </p>
+        </div>
+    </div>
+    <div class="prazanDiv"></div>
+    
+    <!--Podnožje stranice-->
+    <footer class="footer">
+        <div class="left">Powered by Laufer</div>
+        <div class="center">© 2022 SKAPI All rights reserved.</div>
+    </footer>
+    
+</body>
+</html>

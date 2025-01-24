@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ugradnja - Protuprovalna vrata SKAPI</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" sizes="16x16">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+
+       /* Uređenje stranice od naslova */
+        .naslov {
+            font-size: 40px; /* Početna veličina fonta */
+            text-align: center; /* Naslov centriran */
+            color: #0d1d3e;
+            margin: 10px; /* Postavlja marginu sa svake strane za 10px */
+            padding: 30px; /* Postavlja padding sa svake strane za 30px */
+        }
+
+        .gallery {
+            display: grid; /* Postavlja element kao grid container */
+            grid-template-columns: repeat(4, 1fr); /* Definiše 4 kolone u mreži, svaka zauzima jednak dio prostora */
+            gap: 10px; /* Postavlja razmak od 10px između elemenata u mreži */
+            margin: 0px 0px 35px; /* Vanjski razmak: 0px gore, 0px desno i lijevo, 35px dole */
+            padding: 0px 0px 0px 80px; /* Unutrašnji razmak: 80px s lijeve strane, 0px na ostalim stranama */
+        }
+
+        .gallery img {
+            width: 225px; /* Precizno podešena širina */
+            height: 300px; /* Precizno podešena visina */
+            object-fit: cover; /* Prilagodba slike bez deformacije */
+            margin-bottom: 5px;
+        }
+
+        /* Media Queries  */
+        @media (max-width: 1024px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr); /* 2 kolone za tablete */
+            }
+            .naslov {
+                font-size: 30px; /* Smanjena veličina fonta za tablet */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: 1fr; /* 1 kolona za mobilne uređaje */
+            }
+            .naslov {
+                font-size: 24px; /* Smanjena veličina fonta za mobilne uređaje */
+            }
+            .gallery img {
+                margin-bottom: 30px; /* Razmak od 30px između slika po dnu */
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Prvi red: Logo i informacije -->
+        <div class="header-row">
+            <div class="logo">
+                <a href="index.html"> <img src="images/skapi_logo_2.png" alt="Skapi Logo"></a>
+            </div>
+    
+    
+            <div class="info-container">
+                <!-- Lokacija -->
+                <div class="info-section">
+                    <img src="images/lokacija.png" alt="GPS Lokacija">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Lokacija</span></div>
+                        <div><span style="color: rgb(120,120,120);">RK Sjenjak pp. 9 suteren</span></div>
+                    </div>
+                </div>
+    
+                <!-- Radno vrijeme -->
+                <div class="info-section">
+                    <img src="images/radno_vrijeme.png" alt="Radno vrijeme">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Radno vrijeme:</span></div>
+                        <div><span style="color: rgb(120,120,120);">08:00-17:00</span></div>
+                    </div>
+                </div>
+    
+                <!-- Telefon -->
+                <div class="info-section">
+                    <img src="images/poziv.png" alt="Pozovite nas">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Pozovite nas</span></div>
+                        <div><span style="color: rgb(120,120,120);">+38761164096</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Drugi red: Padajući meni sa 8 divova -->
+        <div class="header-row">
+            <div class="menu-item">
+                <a href="index.html">🏠Home</a>
+            </div>
+            <div class="menu-item">
+                <a href="onama.html">O Nama</a>
+            </div>
+            <div class="menu-item">
+                <a href="galerija.html">Galerija Ugrađenih Vrata</a>
+            </div>
+            <div class="menu-item">
+                <a href="servis.html">Servis</a>
+            </div>
+            <div class="menu-item">
+                <a href="skapi.html">❤️Skapi Vrata</a>
+            </div>
+            <div class="menu-item">
+                <a href="novosti.html">Novosti</a>
+            </div>
+            <div class="menu-item">
+                <a href="kontakt.html">Kontakt</a>
+            </div>
+            <div class="menu-item">
+                <button class="facebook-btn" onclick="window.location.href='https://www.facebook.com/skapivrata';">Facebook</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="uvodniDio">
+        <div class="kontakt"><h1 id="page-title">Ugradnja</h1></div>
+        <div class="home"><a href="index.html">Home</a></div>
+        
+    </div>
+
+    <h2 class="naslov">Galerija Ugrađenih Vrata</h2>
+
+    <div class="gallery">
+        <img src="images/vrata1.jpg" alt="Vrata 1">
+        <img src="images/vrata2.jpg" alt="Vrata 2">
+        <img src="images/vrata3.jpg" alt="Vrata 3">
+        <img src="images/vrata4.jpg" alt="Vrata 4">
+        <img src="images/vrata5.jpg" alt="Vrata 5">
+        <img src="images/vrata6.jpg" alt="Vrata 6">
+        <img src="images/vrata7.jpg" alt="Vrata 7">
+        <img src="images/vrata8.jpg" alt="Vrata 8">
+        <img src="images/vrata9.jpg" alt="Vrata 9">
+        <img src="images/vrata10.jpg" alt="Vrata 10">
+        <img src="images/vrata11.jpg" alt="Vrata 11">
+        <img src="images/vrata12.jpg" alt="Vrata 12">
+        <img src="images/vrata13.jpg" alt="Vrata 13">
+        <img src="images/vrata14.jpg" alt="Vrata 14">
+        <img src="images/vrata15.jpg" alt="Vrata 15">
+        <img src="images/vrata16.jpg" alt="Vrata 16">
+        <img src="images/vrata17.jpg" alt="Vrata 17">
+        <img src="images/vrata18.jpg" alt="Vrata 18">
+        <img src="images/vrata19.jpg" alt="Vrata 19">
+        <img src="images/vrata20.jpg" alt="Vrata 20">
+    </div>
+
+    <footer class="footer">
+        <div class="left">Powered by Laufer</div>
+        <div class="center">© 2022 SKAPI All rights reserved.</div>
+    </footer>
+    
+</body>
+</html>

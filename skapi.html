@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skapi vrata - Protuprovalna vrata SKAPI</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" sizes="16x16">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+
+        /* Glavni kontejner */
+        .modeli-vrata {
+            display: flex; 
+            justify-content: space-between; /* Raspoređuje divove ravnomerno */
+            flex-wrap: wrap; /* Omogućava prelamanje elemenata */
+            padding: 20px; /* Unutrašnja margina */
+        }
+
+        /* Stil za pojedinačna vrata */
+        .vrata {
+            flex: 1 1 18%; /* Fleksibilna širina, minimum 18% */
+            margin: 10px; /* Razmak između divova */
+            max-width: 200px; /* Maksimalna širina divova */
+        }
+
+        /* Stil za slike */
+        .vrata img {
+            width: 100%; /* Širina slike 100% od roditeljskog elementa */
+            height: auto; /* Automatska visina za očuvanje proporcija */
+            display: block; /* Uklanja dodatne razmake ispod slike */
+        }
+
+        /* Stil za naslove i paragrafe */
+        .vrata h2, .vrata p {
+            text-align: center; /* Centriranje teksta */
+        }
+        /* Stil za horizontalnu liniju*/
+        hr {
+            height: 2px; /*Visina linije*/
+            background-color: #0d1d4e; /*Boja linije*/
+            border:none;  /*Uklanja border*/
+        }
+        /* Stil za padajući meni*/
+        .form-select {
+            margin: 50px; /* Pozicioniranje elementa */
+            font-size: 16px; /* Veličina teksta */
+            color: #919191; /* Boja teksta */
+            background-color: #f4f4f4; /* Pozadina dropdowna */
+            border: 1px solid #ccc; /* Boja ivice */
+            border-radius: 5px; /* Zaobljeni uglovi */
+            width: 240px; /* Širina dropdowna */
+            box-shadow: 0 0 5px rgba(0, 86, 179, 0.5); /* Postavke sjene*/
+            cursor: pointer; /* Promena kursora na hover */
+            padding: 10px;
+        }
+
+            /* Media Queries za responzivnost */
+            @media (max-width: 1024px) {
+                .vrata {
+                    flex: 1 50%; /* Na manjim ekranima, divovi zauzimaju 50% */
+                }
+            }
+
+            @media (max-width: 768px) {
+                .vrata {
+                    flex: 1 1 100%; /* Na vrlo malim ekranima, divovi zauzimaju 100% */
+                }
+            }
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+         <!-- Prvi red: Logo i informacije -->
+         <div class="header-row">
+            <div class="logo">
+                <a href="index.html"> <img src="images/skapi_logo_2.png" alt="Skapi Logo"></a>
+            </div>
+    
+    
+            <div class="info-container">
+                <!-- Lokacija -->
+                <div class="info-section">
+                    <img src="images/lokacija.png" alt="GPS Lokacija">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Lokacija</span></div>
+                        <div><span style="color: rgb(120,120,120);">RK Sjenjak pp. 9 suteren</span></div>
+                    </div>
+                </div>
+    
+                <!-- Radno vrijeme -->
+                <div class="info-section">
+                    <img src="images/radno_vrijeme.png" alt="Radno vrijeme">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Radno vrijeme:</span></div>
+                        <div><span style="color: rgb(120,120,120);">08:00-17:00</span></div>
+                    </div>
+                </div>
+    
+                <!-- Telefon -->
+                <div class="info-section">
+                    <img src="images/poziv.png" alt="Pozovite nas">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Pozovite nas</span></div>
+                        <div><span style="color: rgb(120,120,120);">+38761164096</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Drugi red: Padajući meni sa 8 divova -->
+        <div class="header-row">
+            <div class="menu-item">
+                <a href="index.html">🏠Home</a>
+            </div>
+            <div class="menu-item">
+                <a href="onama.html">O Nama</a>
+            </div>
+            <div class="menu-item">
+                <a href="galerija.html">Galerija Ugrađenih Vrata</a>
+            </div>
+            <div class="menu-item">
+                <a href="servis.html">Servis</a>
+            </div>
+            <div class="menu-item">
+                <a href="skapi.html">❤️Skapi Vrata</a>
+            </div>
+            <div class="menu-item">
+                <a href="novosti.html">Novosti</a>
+            </div>
+            <div class="menu-item">
+                <a href="kontakt.html">Kontakt</a>
+            </div>
+            <div class="menu-item">
+                <button class="facebook-btn" onclick="window.location.href='https://www.facebook.com/skapivrata';">Facebook</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="uvodniDio">
+        <div class="kontakt"><h1 id="page-title">Skapi vrata</h1></div>
+        <div class="home"><a href="index.html">Home</a></div>
+        
+    </div>
+    <div style="height: 10px;"></div>
+
+    <!-- Kontejner za padajući meni -->
+
+    <div class="button">
+        <select class="form-select" aria-label="Small select example">
+            <option selected>Zadano sortiranje</option>
+            <option value="1">Razvrstaj po popularnosti</option>
+            <option value="2">Poredaj od zadnjeg</option>
+            <option value="3">Razvrstaj po cijeni: veće do manje</option>
+            <option value="4">Razvrstaj po cijeni: manje do veće</option>
+        </select>
+    </div>
+    
+
+
+    <!--Kontejner za ostali glavni sadržaj-->
+    
+    <div class="modeli-vrata">
+        <div class="vrata">
+            <h2>Kategorije</h2>
+            <hr>
+            <p>Vrata</p>
+            <p>Standard</p>
+            <p>Maxima</p>
+            <p>Strong</p>
+            <p>Strong Plus</p>
+        </div>
+        <div class="vrata">
+            <img src="images/strong-plus.jpg" alt="Strong Plus">
+            <p>Strong Plus</p>
+        </div>
+        <div class="vrata">
+            <img src="images/strong.jpg" alt="Strong">
+            <p> Strong</p>
+        </div>
+        <div class="vrata">
+            <img src="images/maxima.jpg" alt="Maxima">
+            <p> Maxima</p>
+        </div>
+        <div class="vrata">
+            <img src="images/standard.png" alt="Standard">
+            <p> Standard</p>
+        </div>
+    </div>
+    <div class="prazanDiv" style="height: 30px;"></div>
+
+
+    <!--Podnožje stranice-->
+
+    <footer class="footer">
+        <div class="left">Powered by Laufer</div>
+        <div class="center">© 2022 SKAPI All rights reserved.</div>
+    </footer>
+
+    <script>
+    
+    
+    </script>
+    
+</body>
+</html>

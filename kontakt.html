@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" sizes="16x16">
+
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    
+        .container {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        padding: 20px;
+        }
+
+        .contact-info {
+            max-width: 400px;
+        }
+
+        .contact-info h2 {
+            color: #092255;
+        }
+
+        /* Stil za paragrafe unutar forme */
+        .contact-info p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .phone-number {
+            color: red; /* Postavka boje */
+            font-weight: bold; /* Podebljan tekst */
+        }
+
+        /* Div za ikone */
+        .social-icons {
+            display: flex;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        .icon {
+            text-align: center; /* Centrira tekst ispod ikona */
+        }
+
+        .circle a {
+            text-decoration: none;
+            color: red;
+            font-size: 35px;
+        }
+
+        .circle {
+            width: 50px;
+            height: 50px;
+            border: 1.5px solid red;
+            border-radius: 50%; /* Postavke za zaobljenje, 50% daje krug */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background-color: white; /* Boja za pozadinu forme */
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            padding: 40px 40px 40px 30px;
+        }
+
+        .contact-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            font-size: 16px;
+        }
+
+        .contact-form button {
+            background-color: red; /* Boja pozadine */
+            color: white; /* Boja teksta */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px; /* Malo zaobljenje dugmeta */
+            cursor: pointer; /* Pojavi se ruka kada kursor pređe preko dugmeta */
+            font-size: 16px;
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+
+        .contact-form button:hover {
+            background-color: darkred; /* Prilikom prelaska miša preko dugmeta menja se boja */
+        }
+
+        /* Media Queries za responzivnost */
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column; /* Promena rasporeda na vertikalni */
+                align-items: center; /* Centriranje elemenata */
+            }
+
+            .contact-info, .contact-form {
+                max-width: 90%; /* Širina na manjim ekranima */
+                padding: 20px; /* Smanjenje paddinga */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-form {
+                padding: 20px 15px; /* Smanjenje paddinga za formu */
+            }
+
+            .contact-info h2 {
+                font-size: 18px; /* Smanjenje veličine fonta za naslove */
+            }
+
+            .contact-info p {
+                font-size: 14px; /* Smanjenje veličine fonta za paragrafe */
+            }
+
+            .contact-form input, .contact-form button {
+                font-size: 14px; /* Smanjenje veličine fonta za inpute i dugmad */
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+    <header>
+         <!-- Prvi red: Logo i informacije -->
+         <div class="header-row">
+            <div class="logo">
+                <a href="index.html"> <img src="images/skapi_logo_2.png" alt="Skapi Logo"></a>
+            </div>
+    
+            <div class="info-container">
+                <!-- Lokacija -->
+                <div class="info-section">
+                    <img src="images/lokacija.png" alt="GPS Lokacija">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Lokacija</span></div>
+                        <div><span style="color: rgb(120,120,120);">RK Sjenjak pp. 9 suteren</span></div>
+                    </div>
+                </div>
+    
+                <!-- Radno vrijeme -->
+                <div class="info-section">
+                    <img src="images/radno_vrijeme.png" alt="Radno vrijeme">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Radno vrijeme:</span></div>
+                        <div><span style="color: rgb(120,120,120);">08:00-17:00</span></div>
+                    </div>
+                </div>
+    
+                <!-- Telefon -->
+                <div class="info-section">
+                    <img src="images/poziv.png" alt="Pozovite nas">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Pozovite nas</span></div>
+                        <div><span style="color: rgb(120,120,120);">+38761164096</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Drugi red: Meni sa 8 divova -->
+        <div class="header-row">
+            <div class="menu-item">
+                <a href="index.html">🏠Home</a>
+            </div>
+            <div class="menu-item">
+                <a href="onama.html">O Nama</a>
+            </div>
+            <div class="menu-item">
+                <a href="galerija.html">Galerija Ugrađenih Vrata</a>
+            </div>
+            <div class="menu-item">
+                <a href="servis.html">Servis</a>
+            </div>
+            <div class="menu-item">
+                <a href="skapi.html">❤️Skapi Vrata</a>
+            </div>
+            <div class="menu-item">
+                <a href="novosti.html">Novosti</a>
+            </div>
+            <div class="menu-item">
+                <a href="kontakt.html">Kontakt</a>
+            </div>
+            <div class="menu-item">
+                <button class="facebook-btn" onclick="window.location.href='https://www.facebook.com/skapivrata';">Facebook</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="uvodniDio">
+        <div class="kontakt"><h1 id="page-title">Kontakt</h1></div>
+        <div class="home"><a href="index.html">Home</a></div>
+        
+    </div>
+
+    <div style="height: 80px;"></div>
+    <!--Glavni div-->
+    <div class="container">
+        <!--Div za kontak-->
+        <div class="contact-info">
+            <h2>Kontaktirajte nas</h2>
+            <p>Za sva pitanja vezana za našu prodaju i usluge, možete nas kontaktirati putem forme ili nas pozvati na broj <span class="phone-number">+387 61 164 096</span></p>
+            <div class="social-icons">
+                <div class="icon">
+                    <div class="circle"><span class="icon-text"><a href="https://www.facebook.com/skapivrata" >f</a></span></div>
+                    <p>Facebook</p>
+                    <small>Skapi Servis blindiranih, protuprovalnih, sigurnosnih vrata</small>
+                </div>
+                <div class="icon">
+                    <div class="circle" onclick="showAlert()"><span class="icon-text">&#128172;</span></div> <!--&#128172;- jedinstveni kod za oblak ili poruka u balonu, koja vodi na viber-->
+                    <p>Viber</p>
+                    <small>+387 61 164 096</small>
+                </div>
+            </div>
+        </div>
+        <!--Div za formu-->
+        <div class="contact-form">
+            <form id="contactForm">
+                <input type="text" id="ime" placeholder="Ime">
+                <input type="text" id="prezime" placeholder="Prezime">
+                <input type="email" id="email" placeholder="Email">
+                <input type="text" id="telefon" placeholder="Telefon">
+                <input type="text"  id="poruka" placeholder="Poruka"></textarea>
+                <button type="submit">Pošalji</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        function showAlert() {
+        alert("Trenutno nije moguće otići na ovu stranicu.");
+    }
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Sprečava ponovno učitavanje stranice
+    
+            const ime = document.getElementById("ime").value.trim();
+            const prezime = document.getElementById("prezime").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const telefon = document.getElementById("telefon").value.trim();
+            const poruka = document.getElementById("poruka").value.trim();
+    
+            if (ime && prezime && email && telefon && poruka) {
+                alert("Uspješno ste poslali podatke!");
+    
+                // Resetuje vrijednosti polja nakon uspješnog slanja
+                document.getElementById("ime").value = "";
+                document.getElementById("prezime").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("telefon").value = "";
+                document.getElementById("poruka").value = "";
+            } else {
+                alert("Molimo popunite sva polja!");
+            }
+        });
+    </script>
+
+    <!--Podnožje stranice-->
+    <footer class="footer">
+        <div class="left">Powered by Laufer</div>
+        <div class="center">© 2022 SKAPI All rights reserved.</div>
+    </footer>
+    
+    
+    
+</body>
+</html>

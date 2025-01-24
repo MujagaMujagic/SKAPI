@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novosti - Protuprovalna vrata SKAPI</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" sizes="16x16">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        .prazanDiv {
+            height: 50px;
+        }
+
+        .blok {
+            background-color: white; /* Bijela pozadina */
+            border: 1px solid #ddd;
+            overflow: hidden; /* Ukoliko element izlazi iz granice okvira postaje nevidljiv i ne prikazuje se */
+            text-align: center;
+            flex: 1;
+            box-shadow: 0 4px 6px rgba(144, 21, 21, 0.2); /* Dodaje sjenu elementu */
+        }
+
+        .slika img {
+            width: 100%;
+            height: auto; /* Promijenjeno na auto za responzivnost */
+            object-fit: cover;
+        }
+
+        .blokovi {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px auto;
+            max-width: 900px; /* Maksimalna širina galerije */
+            gap: 40px; /* Razmak između blokova */
+        }
+
+        .sadrzaj h2 a {
+            text-decoration: none; /* Bez podvlačenja */
+            color: #002B7F; /* Plava boja */
+            cursor: pointer; /* Ruka se pojavljuje kad pređete mišem */
+        }
+
+        .sadrzaj h2 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .sadrzaj h2 a:hover {
+            color: #be1f24; /* Promjena boje kada se pređe mišem */
+        }
+
+        .sadrzaj {
+            padding: 15px;
+        }
+
+        .sadrzaj p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        /* Medijski upiti za responzivnost */
+        @media (max-width: 1024px) {
+            .blokovi {
+                flex-direction: column; /* Promjena u kolonu na manjim ekranima */
+                gap: 20px; /* Manji razmak između blokova */
+            }
+
+            .blok {
+                width: 100%; /* Blokovi će zauzeti punu širinu */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sadrzaj h2 {
+                font-size: 18px; /* Manji font za naslove */
+            }
+
+            .sadrzaj p {
+                font-size: 12px; /* Manji font za paragrafe */
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+         <!-- Prvi red: Logo i informacije -->
+         <div class="header-row">
+            <div class="logo">
+                <a href="index.html"> <img src="images/skapi_logo_2.png" alt="Skapi Logo"></a>
+            </div>
+    
+            <div class="info-container">
+                <!-- Lokacija -->
+                <div class="info-section">
+                    <img src="images/lokacija.png" alt="GPS Lokacija">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Lokacija</span></div>
+                        <div><span style="color: rgb(120,120,120);">RK Sjenjak pp. 9 suteren</span></div>
+                    </div>
+                </div>
+    
+                <!-- Radno vrijeme -->
+                <div class="info-section">
+                    <img src="images/radno_vrijeme.png" alt="Radno vrijeme">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Radno vrijeme:</span></div>
+                        <div><span style="color: rgb(120,120,120);">08:00-17:00</span></div>
+                    </div>
+                </div>
+    
+                <!-- Telefon -->
+                <div class="info-section">
+                    <img src="images/poziv.png" alt="Pozovite nas">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Pozovite nas</span></div>
+                        <div><span style="color: rgb(120,120,120);">+38761164096</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Drugi red: Padajući meni sa 8 divova -->
+        <div class="header-row">
+            <div class="menu-item">
+                <a href="index.html">🏠Home</a>
+            </div>
+            <div class="menu-item">
+                <a href="onama.html">O Nama</a>
+            </div>
+            <div class="menu-item">
+                <a href="galerija.html">Galerija Ugrađenih Vrata</a>
+            </div>
+            <div class="menu-item">
+                <a href="servis.html">Servis</a>
+            </div>
+            <div class="menu-item">
+                <a href="skapi.html">❤️Skapi Vrata</a>
+            </div>
+            <div class="menu-item">
+                <a href="novosti.html">Novosti</a>
+            </div>
+            <div class="menu-item">
+                <a href="kontakt.html">Kontakt</a>
+            </div>
+            <div class="menu-item">
+                <button class="facebook-btn" onclick="window.location.href='https://www.facebook.com/skapivrata';">Facebook</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="uvodniDio">
+        <div class="kontakt"><h1 id="page-title">Novosti</h1></div>
+        <div class="home"><a href="index.html">Home</a></div>
+        
+    </div>
+    <div class="prazanDiv"></div>
+
+
+    <!--Glavni sadržaj stranice-->
+    <div class="blokovi">
+
+        <!-- Prvi blok: Protuprovalna vrata -->
+        <div class="blok">
+            <div class="slika">
+                <img src="images/skapi-tuzla.jpg" alt="">
+            </div>
+            <div class="sadrzaj">
+                <h2><a href="protuprovalnaVrata.html">Protuprovalna vrata SKAPI Tuzla</a></h2>
+                <p>Bavimo se prodajom, ugradnjom te servisom  protuprovalnih vrata. Počeci našeg poslovanja kreću još od 1999 godine kad je stvorena jezgra poslovanja temeljena na uslugama ugradnje…</p>
+            </div>
+        </div>
+        <!-- Drugi blok:Otključavanje protuprovalnih vrata -->
+        <div class="blok">
+            <div class="slika">
+                <img src="images/skapi-sigurnosna-vrata.jpg" alt="">
+            </div>
+            <div class="sadrzaj">
+                <h2><a href="otkljucavanje.html">Otključavanje protuprovalnih vrata</a></h2>
+                <p>U saradnji sa našim partnerima kao cilj je ponuditi klijentima pouzdana, kvalitetna a cijenom prihvatljiva protuprovalna vrata, te vrhunsku uslugu. Povoljne cijene, odlična kvaliteta, brzina…</p>
+            </div>
+        </div>
+        <!-- Treći blok: Zamjena brava na protuprovalnih vrata -->
+        <div class="blok">
+            <div class="slika">
+                <img src="images/Brave.jpg" alt="">
+            </div>
+            <div class="sadrzaj">
+                <h2><a href="zamjenaBrava.html">Zamjena brava na protuprovalnim vratima</a></h2>
+                <p>Osim ugradnje protuprovalnih vrata, otvaranje vrata, servis vrata i zamjena svih vrsta brava je usluga koju nudimo najčešće kroz hitne intervencije. Iako, ne spada svaka usluga…</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="prazanDiv"></div>
+    
+    <!--Podnožje stranice-->
+    <footer class="footer">
+        <div class="left">Powered by Laufer</div>
+        <div class="center">© 2022 SKAPI All rights reserved.</div>
+    </footer>
+    
+</body>
+</html>

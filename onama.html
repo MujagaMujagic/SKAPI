@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O nama - Protuprovalna vrata SKAPI</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" sizes="16x16">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* Stil za glavni div - tekst i slika */
+        .textISlika {
+            display: flex; 
+            gap: 20px; /* Razmak između teksta i slika */
+            align-items: flex-start; /* Poravnanje elemenata gore */
+            margin: 70px 90px 30px 20px; 
+            padding: 15px; 
+        }
+
+        .text {
+            flex: 1; /* Tekst zauzima proporcionalno više prostora */
+            font-family: Arial, sans-serif; /* Font za tekst */
+            color: #0a0a0a; /* Boja teksta */
+            padding: 0px 20px; /* Unutrašnji razmak unutar teksta */
+        }
+
+        h2 {
+            margin: 0px; /* Bez postavljanja margina za h2 */
+        }
+
+        .text h2 {
+            color: #0d1d4e; /* Boja za h2 unutar .text */
+            font-size: 44px; /* Veličina fonta za h2 */
+            margin-bottom: 50px; /* Razmak ispod h2 */
+        }
+
+        /* Stil za strong elemente */
+        .text strong {
+            color: #0d1d4e; 
+            font-size: 36px; 
+            margin: 0px 0px 17px; 
+            display: block; 
+        }
+
+        .text p {
+            font-size: 15px; 
+            margin: 0px 0px 20px; 
+        }
+
+        .slike {
+            flex: 1; 
+            text-align: center; /* Centriran tekst unutar slika */
+            max-width: 50%; 
+        }
+
+        .slike img {
+            max-width: 100%; /* Slike se prilagođavaju širini roditeljskog elementa */
+            height: auto; /* Visina se automatski prilagođava */
+            margin-bottom: 20px;
+        }
+
+        /* Media Queries za responzivnost */
+        @media (max-width: 1024px) {
+            .textISlika {
+                flex-direction: column; /* Promjena rasporeda na kolonu za tablete */
+                margin: 50px 20px; /* Smanjenje margina za tablete */
+            }
+            .slike {
+                max-width: 100%; /* Slike zauzimaju punu širinu na tabletima */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .textISlika {
+                margin: 30px 10px; 
+            }
+
+            .text h2 {
+                font-size: 28px; 
+            }
+
+            .text strong {
+                font-size: 24px; /* Smanjenje veličine fonta za strong elemente na mobilnim uređajima */
+            }
+
+            .text p {
+                font-size: 14px; /* Smanjenje veličine fonta za paragrafe na mobilnim uređajima */
+            }
+
+            .slike img {
+                margin-bottom: 15px; 
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+         <!-- Prvi red: Logo i informacije -->
+         <div class="header-row">
+            <div class="logo">
+                <a href="index.html"> <img src="images/skapi_logo_2.png" alt="Skapi Logo"></a>
+            </div>
+    
+            <div class="info-container">
+                <!-- Lokacija -->
+                <div class="info-section">
+                    <img src="images/lokacija.png" alt="GPS Lokacija">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Lokacija</span></div>
+                        <div><span style="color: rgb(120,120,120);">RK Sjenjak pp. 9 suteren</span></div>
+                    </div>
+                </div>
+    
+                <!-- Radno vrijeme -->
+                <div class="info-section">
+                    <img src="images/radno_vrijeme.png" alt="Radno vrijeme">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Radno vrijeme:</span></div>
+                        <div><span style="color: rgb(120,120,120);">08:00-17:00</span></div>
+                    </div>
+                </div>
+    
+                <!-- Telefon -->
+                <div class="info-section">
+                    <img src="images/poziv.png" alt="Pozovite nas">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Pozovite nas</span></div>
+                        <div><span style="color: rgb(120,120,120);">+38761164096</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Drugi red: Padajući meni sa 8 divova -->
+        <div class="header-row">
+            <div class="menu-item">
+                <a href="index.html">🏠Home</a>
+            </div>
+            <div class="menu-item">
+                <a href="onama.html">O Nama</a>
+            </div>
+            <div class="menu-item">
+                <a href="galerija.html">Galerija Ugrađenih Vrata</a>
+            </div>
+            <div class="menu-item">
+                <a href="servis.html">Servis</a>
+            </div>
+            <div class="menu-item">
+                <a href="skapi.html">❤️Skapi Vrata</a>
+            </div>
+            <div class="menu-item">
+                <a href="novosti.html">Novosti</a>
+            </div>
+            <div class="menu-item">
+                <a href="kontakt.html">Kontakt</a>
+            </div>
+            <div class="menu-item">
+                <button class="facebook-btn" onclick="window.location.href='https://www.facebook.com/skapivrata';">Facebook</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="uvodniDio">
+        <div class="kontakt"><h1 id="page-title">O nama</h1></div>
+        <div class="home"><a href="index.html">Home</a></div>
+        
+    </div>
+
+    <!-- Div za glavni sadržaj-->
+    <div class="textISlika">
+        <div class="text">
+            <h2>SKAPI usluge i servisi</h2>
+            <strong>Hitne intervencije otključavanje zalupljenih vrata</strong>
+            <p>Možda se nađete u situaciji da se vrata slučajno zalupe i vi ostane zaključani iz ureda ili doma. Zalupljena vrata su vrlo frustrirajući problem jer vas zaključavanje sprječava da bilo gdje idete dok se situacija ne riješi. Ipak, naši bravari imaju pravi odgovor. Usluge hitne intervencije otključavanja zalupljenih vrata koje naši bravari mogu pružiti potkrijepljene su dugogodišnjim iskustvom, odgovarajućim profesionalnim alatima i tehnikama.</p>
+
+            <strong>Hitna intervencija zamjene pokvarenih brava i dijelova</strong>
+            <p>Djelomično ili potpuno slomljena brava također je vrlo frustrirajući problem. Pokušate li problem riješiti sami, rezultat bi mogao biti nepopravljivo oštećenje vrata i brave. Da bi izbjegli nepotrebne troškove ovaj posao bolje prepustite našim stručnjacima.</p>
+
+            <strong>Popravak brava</strong>
+            <p>Svima nam je jasno da neispravne brave značajno smanjuju sigurnost u našim stanovima, a da ne spominjemo imovinu koju sadrže. Stoga se toplo preporučuju hitne usluge bravara kada se pojave ovakvi problemi.</p>
+            <p>Ako brava ne reagira na odgovarajući način, naši bravari pružaju brzu i profesionalnu pomoć. Hitne intervencije koje obavljaju naši bravari uključuju zamjenu pokvarene brave novom, zamjenu različitih dijelova i servis protuprovalnih vrata.</p>
+
+            <strong>Popravci nakon pokušaja provale</strong>
+            <p>Neželjeni događaj provale ostavlja za sobom ozbiljne sigurnosne probleme. Brave su često nepopravljive i polomljene, vrata se ne mogu zatvoriti a ponekad se moraju zamijeniti cijeli sistemi zaključavanja vrata.</p>
+            <p>Kako bismo spriječili takve situacije u budućnosti, naše bravarske usluge hitnih popravaka uspjeti će vratiti sigurnost vašem stanu i imovini.</p>
+
+            <strong>Hitna intervencija vađenja slomljenog ključa</strong>
+            <p>Na kraju ali ne i najmanje važno, hitne bravarske usluge mogu riješiti situaciju slomljenog ključa zaglavljenog u bravi. Neki kažu da možete sami izvaditi ključ i uštedjeti novac, ali rizik od oštećenja brave u ovom slučaju postoji.Također, riskirate dodatni trošak, jer ako oštetite mehanizam brave morat ćete ga zamijeniti.</p>
+
+            <strong>Bravarske intervencije i usluge</strong>
+            <p>Kao firma koja se bavi bravarskim poslovima, nudimo razne usluge, ali ovdje su neke od uobičajenih bravarskih usluga:</p>
+            <ul>
+                <li>Hitne bravarske usluge otključavanja vrata</li>
+                <li>Otvaranje običnih i protuprovalnih vrata. Otvorit ćemo vrata bez oštećenja vaše imovine</li>
+                <li>Otvaranje svih vrsta brava</li>
+                <li>Servis protuprovalnih (sigurnosnih) brava</li>
+                <li>Promjena brave na protuprovalnim vratima</li>
+                <li>Podešavanje vrata</li>
+                <li>Zamjena kvake ili kugle i okova na vratima</li>
+                <li>Popravak cilindra, brave i vrata</li>
+                <li>Popravci nakon pokušaja provale</li>
+                <li>Generalni popravak vrata</li>
+            </ul>
+        </div>
+        <div class="slike">
+            <img src="images/security-system.jpg" alt="Sigurnosni sistem">
+            <img src="images/security-system2.jpg" alt="Sigurnosni sistem 2">
+        </div>
+    </div>
+
+    <!--Podnožje stranice-->
+    <footer class="footer">
+        <div class="left">Powered by Laufer</div>
+        <div class="center">© 2022 SKAPI All rights reserved.</div>
+    </footer>
+    
+</body>
+</html>

@@ -1,0 +1,198 @@
+/*Stil za tijelo stranice*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+/*Svojsta zaglavlja stranice*/
+header {
+    display: flex;/*Omogućava fleksibilno raspoređivanje dječijih elemenata.*/
+    flex-direction: column; /*Raspoređuje elemente u kolone, jedna ispod druge */
+    border-bottom: 1px solid #ccc;
+    width: 100%; /* Postavlja širinu hedera na 100% */
+    z-index: 10; /* Osigurava da header bude iznad drugih elemenata */
+}
+
+.header-row {
+    display: flex; /* Postavlja elemente u red koristeći fleksibilni raspored. */
+    justify-content: space-between; /* Razmak između elemenata se ravnomjerno raspoređuje, jedan ide lijevo, a drugi desno. */
+    align-items: center;
+    padding: 10px 20px;
+
+}
+
+.logo img {
+    max-height: 70px; /* Visina loga */
+    margin-right: 50px; /* Desna margina*/
+}
+
+.info-container {
+    display: flex;
+    gap: 20px; /* Razmak između sekcija */
+}
+
+.info-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dropdown-menu {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); /* Kreira 8 jednakih kolona*/
+    gap: 10px; /* Razmak između elemenata */
+    padding: 10px 20px; /*Dodaje unutrašnji razmak: 10px gore/dolje i 20px lijevo/desno. */
+    background-color: #fff; /*Bjela pozadina*/
+}
+.header-row  {
+    font-size: 14px; /* Veličina fonta */
+}
+/* Stil za menu linkove */
+.menu-item a {
+    text-decoration: none; /*Uklanja podvlačenje s linkova*/
+    color: black; /* Postavlja crnu boju za linkove*/
+    font-weight: bold; /* Podebljani tekst linkova*/
+    text-align: center;
+    display: block; /* Čini link blok elementom (zauzima cijeli red).*/
+    padding: 5px 10px;
+}
+/* Stil za facbook dugme*/
+.facebook-btn {
+    background-color: #be1f24;/* Boja pozadine*/
+    color: white;
+    border: none;
+    padding: 10px 35px 9px;
+    border-radius: 150px;
+    cursor: pointer;/*Pojavi se ruka prilikom prelaska kursora miša preko dugmeta*/
+}
+/* Promjena boje pozadine za Facebook dugme prilikom prelaska mišem preko njega */
+.facebook-btn:hover {
+    background-color: #e4781f; /* Postavlja narandžastu boju kada je dugme u "hover" stanju. */
+}
+
+/* Ovaj CSS čini da Facebook dugme zauzima više prostora */
+.header-row .menu-item a:last-child {
+    flex-grow: 2; /* Facebook dugme raste i zauzima više prostora */
+    width: auto;/* Automatska širina*/
+}
+/* Stilizacija za uvodni dio stranice */
+.uvodniDio {
+    display: grid; /* Postavlja elemente u mrežni raspored. */
+    grid-template-columns: 0.8fr 0.2fr; /* Kreira dvije kolone, prva zauzima 80% širine, a druga 20%. */
+    background-color: rgba(33, 105, 238, 0.968); /* Postavlja pozadinsku boju u plavoj nijansi sa prozirnošću. */
+    width: 100%; /* Postavlja širinu uvodnog dijela na 100% */
+    margin: 0; /* Uklanja marginu koja može uzrokovati razmak */
+    padding: 0; /* Uklanja padding koji može uzrokovati razmak */
+}
+
+#page-title {
+    color: white; /* Postavlja boju teksta na bijelo. */
+    padding: 40px 50px 50px; 
+    height: 50px; /* Postavlja visinu elementa na 50px. */
+    font-size: 35px; /* Postavlja veličinu fonta na 35px. */
+}
+
+/* Stil za .home klasu */
+.home {
+    font-size: 18px; /* Postavlja veličinu fonta na 18px. */
+    color: white; /* Postavlja boju teksta na bijelo. */
+    margin-top: 75px ; /* Dodaje razmak od 75px sa vrha. */
+    margin-bottom: 75px;
+
+    
+}
+
+/* Stil za linkove unutar .home klase */
+.home a {
+    text-decoration: none; /* Uklanja podvlačenje sa linkova. */
+    color: inherit; /* Nasljeđuje boju teksta iz roditeljskog elementa. */
+    font-family: 'Times New Roman', Times, serif; /* Postavlja font na 'Times New Roman'. */
+    margin-left: 50px; /* Dodaje razmak od 50px lijevo od linka. */
+}
+
+/* Stil za hover efekat na linkovima unutar .home klase */
+.home a:hover {
+    color: #a2a2a2; /* Postavlja sivu boju teksta kada se pređe mišem preko linka. */
+}
+
+/* Stil za podnožje svaka stranice (footer) */
+.footer {
+    background-color: #020c1b; /* Boja pozadine */
+    padding: 14px 0px 0px; /* Gornji padding za footer */
+    display: flex; /* Fleksibilni kontejner */
+    flex-direction: column; /* Postavlja elemente u kolonu */
+    width: 100%;
+}
+.left {
+    font-size: 14px; /* Veličina fonta za tekst lijevo */
+    padding: 9.8px; /* Padding za div s tekstom lijevo */
+    color: #ddd; /* Boja teksta */
+    text-align: left;
+}
+.center {
+    font-size: 14px; /* Veličina fonta za tekst ispod */
+    padding: 9.8px; /* Padding za div s tekstom ispod */
+    color: #93a1a7; /* Boja teksta */
+    text-align: center; /* Centriranje teksta */
+}
+/* Responzivni stilovi */
+@media (max-width: 1024px) {
+    .header-row {
+        flex-direction: column; /* Raspoređuje elemente u kolone na manjim ekranima */
+       
+    }
+
+    .logo img {
+        max-height: 50px; /* Smanjuje visinu loga */
+        margin-right: 20px; /* Smanjuje desnu marginu */
+    }
+
+    .header-row .menu-item a {
+        font-size: 12px; /* Smanjuje veličinu fonta za linkove u meniju */
+        padding: 8px 5px; /* Smanjuje padding za linkove */
+    }
+
+    .facebook-btn {
+        padding: 8px 20px; /* Smanjuje padding za Facebook dugme */
+    }
+
+    .uvodniDio {
+        grid-template-columns: 1fr; /* Postavlja samo jednu kolonu na manjim ekranima */
+    }
+
+    #page-title {
+        font-size: 24px; /* Smanjuje veličinu fonta za naslov */
+        padding: 20px 30px; /* Smanjuje padding za naslov */
+    }
+
+    .home {
+        font-size: 16px; /* Smanjuje veličinu fonta za .home klasu */
+        margin-top: 50px; /* Smanjuje marginu sa vrha */
+    }
+
+    .home a {
+        margin-left: 20px; /* Smanjuje marginu lijevo za linkove unutar .home klase */
+    }
+
+    .footer {
+        padding: 10px 0; /* Smanjuje padding za footer */
+    }
+}
+
+@media (max-width: 768px) {
+    .header-row .menu-item a {
+        font-size: 10px; /* Dodatno smanjenje veličine fonta za linkove u meniju */
+    }
+
+    .logo img {
+        max-height: 40px; /* Dodatno smanjenje visine loga */
+    }
+
+    #page-title {
+        font-size: 24px; /* Dodatno smanjenje veličine fonta za naslov */
+    }
+
+    .home {
+        font-size: 14px; /* Dodatno smanjenje veličine fonta za .home klasu */
+    }
+}

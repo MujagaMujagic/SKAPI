@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skapi</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" sizes="16x16">
+
+
+    <style>
+
+        /*Stil za tijelo stranice*/
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        /*Svojsta zaglavlja stranice*/
+        header {
+            display: flex;/*Omogućava fleksibilno raspoređivanje dječijih elemenata.*/
+            flex-direction: column; /*Raspoređuje elemente u kolone, jedna ispod druge */
+            border-bottom: 1px solid #ccc;
+        }
+
+        .header-row {
+            display: flex; /* Postavlja elemente u red koristeći fleksibilni raspored. */
+            justify-content: space-between; /* Razmak između elemenata se ravnomjerno raspoređuje, jedan ide lijevo, a drugi desno. */
+            align-items: center;
+            padding: 10px 20px;
+
+        }
+
+        .logo img {
+            max-height: 70px; /* Visina loga */
+            margin-right: 50px; /* Desna margina*/
+        }
+
+        .info-container {
+            display: flex;
+            gap: 20px; /* Razmak između sekcija */
+        }
+
+        .info-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dropdown-menu {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr); /* Kreira 8 jednakih kolona*/
+            gap: 10px; /* Razmak između elemenata */
+            padding: 10px 20px; /*Dodaje unutrašnji razmak: 10px gore/dolje i 20px lijevo/desno. */
+            background-color: #fff; /*Bjela pozadina*/
+        }
+        .header-row  {
+            font-size: 14px; /* Veličina fonta */
+        }
+        /* Stil za menu linkove */
+        .menu-item a {
+            text-decoration: none; /*Uklanja podvlačenje s linkova*/
+            color: black; /* Postavlja crnu boju za linkove*/
+            font-weight: bold; /* Podebljani tekst linkova*/
+            text-align: center;
+            display: block; /* Čini link blok elementom (zauzima cijeli red).*/
+            padding: 5px 10px;
+        }
+        /* Stil za facbook dugme*/
+        .facebook-btn {
+            background-color: #be1f24;/* Boja pozadine*/
+            color: white;
+            border: none;
+            padding: 10px 35px 9px;
+            border-radius: 150px; /* Zaobljeno dugme*/
+            cursor: pointer;/*Pojavi se ruka prilikom prelaska kursora miša preko dugmeta*/
+        }
+        /* Promjena boje pozadine za Facebook dugme prilikom prelaska mišem preko njega */
+        .facebook-btn:hover {
+            background-color: #e4781f; /* Postavlja narandžastu boju kada je dugme u "hover" stanju. */
+        }
+
+        /* Ovaj CSS čini da Facebook dugme zauzima više prostora */
+        .header-row .menu-item a:last-child {
+            flex-grow: 2; /* Facebook dugme raste i zauzima više prostora */
+            width: auto;/* Automatska širina*/
+        }
+
+
+       /* Postavljanje slike preko cele širine */
+        .naslovna {
+            position: relative;
+            width: 100%;
+            height: 80vh; /* Visina slike: 80% visine ekrana */
+            background: url('images/slika_za_naslovnu1.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center; /* Vertikalno centriranje sadržaja */
+            justify-content: flex-start; /* Horizontalno poravnanje na levo */
+            overflow: hidden; /* Sprečavanje preliva */
+        }
+
+        /* Transparentni ili blurani sloj ispod teksta */
+        .naslovna::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 30%, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: 1; /* Sloj ispod teksta */
+        }
+
+        /* Stil za tekst i dugme preko slike */
+        .naslovnaSadrzaj {
+            position: relative;
+            z-index: 2; /* Iznad blurovanog sloja */
+            margin-left: 5%; /* Razmak sa lijeve strane */
+            color: white;
+            text-align: left;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .naslovnaSadrzaj h1 {
+            font-size: 40px; /* Veličina naslova */
+            margin: 0 0 20px 0;
+            line-height: 1.4; /* Razmak između redova teksta */
+        }
+
+        /* Stil dugmeta */
+        .naslovnaSadrzaj .btn {
+            display: inline-block;
+            padding: 12px 30px; /* Pravougaoni oblik */
+            background-color: rgba(108, 211, 29, 0.8); /* Prozirno zeleno dugme */
+            color: white;
+            text-decoration: none; /* Uklanjanje linije ispod teksta */
+            font-size: 13px; /* Veličina teksta */
+            border: none; /* Bez ivica */   
+            cursor: pointer;
+        }
+        
+        /* Promjena boje pozadine za 'NAŠA PONUDA' dugme prilikom prelaska mišem preko njega */
+        .naslovnaSadrzaj .btn:hover {
+            background-color: white;
+            color: black;
+        }
+
+        /* Razmak ispod hero sekcije */
+        .prazanDiv {
+            height: 20px; /* Prazan razmak */
+        }
+
+        /* Stil za sliku i tekst (gdje je tekst u boxu lijevo, a slika sa nekoliko vrata desno*/
+        .textISlika {
+            display: flex; 
+            gap: 200px; /* Razmak između teksta i slike */
+            align-items: flex-start; /* Poravnanje elemenata gore */
+            margin: 0px 20px;
+            padding: 15px;
+        }
+
+        .text {
+            flex: 1; /* Tekst zauzima proporcionalno više prostora */
+            font-family: Arial, sans-serif;
+            color: #0a0a0a;
+            box-shadow: 0 4px 6px rgba(12, 12, 12, 0.4); /*Postavkse sjene*/
+        }
+
+        .protuprovalnaVrata {
+            padding: 15px;
+            color: #0d1d4e;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 48px; /*Veličina teksta*/
+            margin: 10px;
+        }
+
+        .SKAPI {
+            padding: 15px;
+            color: #0d1d4e; /* Boja teksta */
+            font-size: 15px;
+            font-family: 'Times New Roman', Times, serif;
+            margin: 10px;
+        }
+
+        /* Stil za paragrafe */
+        .paragrafi {
+            font-size: 15px;
+            margin: 0 0 14px 10px;
+            padding: 15px;
+        }
+
+        /* Stil za dugme "Više info" */
+        .višeInfo {
+            color: rgb(221, 0, 0); /* Boja teksta */
+            background-color: white; /* Boja pozadine */
+            border: 2px solid rgb(221, 0, 0); /* Boja ivica */
+            padding: 15px 17px;
+            font-size: 16px; /* Veličina fonta */
+            cursor: pointer;
+            border-radius: 5px; /* Zaobljenje dugmeta */
+            margin: 14px 25px;
+        }
+
+        /* Promjena boje pozadine za "Više info" dugme prilikom prelaska mišem preko njega */
+        .višeInfo:hover {
+            background-color: rgb(221, 0, 0);
+            color: white;
+        }
+
+        .slika_nekoliko_vrata {
+            flex: 1;
+            text-align: center;
+            max-width: 50%;
+        }
+
+        .slika_nekoliko_vrata img {
+            max-width: 100%; /* Slika se prilagođava širini */
+            height: auto;   
+        }
+        /* Završava se div za sliku i tekst */  
+
+        /* Stil za naslov Profesionalna Usluga */
+        .profesionalnaUsluga{
+            margin: 35px 80px 35px 180px;
+            color: #0d1d4e;
+            font-size: 42px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            text-align: center;
+
+        }
+        
+        /* Stiliziranje linkova unutar h2 */
+        .sadrzaj h2 a {
+            text-decoration:none; /* Bez podvlačenja */
+            color: #002B7F; /* Plava boja */
+            cursor: pointer; /* Ruka se pojavljuje kad pređete mišem */
+            transition: color 0.3s; /* Efekt promjene boje */
+        }
+        .sadrzaj h2 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        .sadrzaj h2 a:hover {
+            color: #be1f24; /* Promjena boje kada se pređe mišem */
+        }
+        /* Stil za sadržaj unutar blokova */
+        .sadrzaj {
+            padding: 15px;
+        }
+
+        .sadrzaj p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        /* Stil za galeriju */
+        .galerija, .galerija2 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 bloka za desktop */
+            gap: 40px; /* Razmak između blokova */
+            margin: 20px auto;
+            max-width: 1100px; 
+        }
+
+        .blok {
+            background-color: white;
+            border: 1px solid #ddd;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex: 1;
+        }
+
+        /* Stil za svaki blok (ugradnja, otključavanje, zamjena) */
+        .blok-ugradnja, .blok-otkljucavanje, .blok-zamjena {
+            background-color: white;
+            border: 1px solid #ddd;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex: 1;
+        }
+
+        /* Stil za slike (6 manjih slika) */
+        .slika img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Stil za modele vrata (4 modela vrata) */
+        .modeli-vrata {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 modela vrata za desktop */
+            gap: 20px; /* Razmak između vrata */
+            max-width: 1000px; 
+            margin: 0 auto; /* Centriranje galerije */
+        }
+
+        .vrata {
+            text-align: center;
+            background-color: #fff;
+            padding: 15px; 
+            border-radius: 5px;
+        }
+
+        .vrata img {
+            width: 180px; 
+            height: 350px; 
+            object-fit: cover;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        .vrata a {
+            display: inline-block;
+            font-size: 16px; 
+            color: #002B7F;
+            text-decoration: none;
+            margin: 15px;
+        }
+
+
+        .prazanDiv  {
+            height: 40px;
+        }
+        /*Stil za podnaslov "Modeli vrata"*/
+        #modeliVrata{
+            color: #0d1d4e;
+            font-size: 42px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            text-align: center;
+        }
+        .statistika {
+            position: relative;
+            background-image: url('images/office.jpeg'); /* Postavlja sliku u pozadinu */
+            background-size: cover; /* Slika pokriva cijeli div bez obzira na proporcije */
+            background-position: center; /* Pozicija slike je centrirana */
+            color: white;
+            text-align: center;
+            padding: 50px 0; /* Dodaje razmak gore i dole unutar diva */
+            height: 350px; /* Visina diva */
+            overflow: hidden; /* Sprečava prelivanje sadrzaja van diva */
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 51, 0.8); /* Plavi sloj sa prozirnošću */
+        }
+
+
+        .statistika-content {
+            position: relative; 
+        }
+
+        .statistika .naslov {
+            font-size: 48px;
+            margin-bottom: 30px; /* Razmak ispod naslova za vizualno odvajanje */
+        }
+
+        .statistika .red {
+            display: flex; /* Koristi fleksibilan raspored za sadržaj u redu */
+            justify-content: center; /* Svi elementi su poravnati u centru */
+            gap: 20px; 
+            flex-wrap: nowrap; /* Svi elementi ostaju u jednom redu */
+        }
+
+        .statistika .kategorija {
+            flex: 1; /* Svaka kategorija zauzima jednak prostor */
+            min-width: 150px; /* Minimalna širina kategorije */
+            max-width: 200px; /* Maksimalna širina kategorije */
+            padding: 30px; 
+        }
+
+        /* Stil za slike klase kategorija*/
+        .statistika .kategorija img {
+            width: 50px; /* Širina ikone */
+            height: 50px; /* Visina ikone */
+            margin-bottom: 10px;
+        }
+        /*Stil za brojeve unutar div-a statistika*/
+        .broj {
+            font-size: 56px; 
+            padding: 0px 0px 7px; 
+            margin: 12px 0px 0px; /* Razmak iznad broja kako bi bio odvojen od drugih elemenata */
+        }
+        /* Stil za : iskustvo,intervencije, klijenti, modeli,*/
+        .opis {
+            font-size: 22px; 
+            margin: 0px 0px 7px; 
+            font-family: Arial, Helvetica, sans-serif; 
+        }
+
+        /**/
+        /*Stil za dno stranice */
+        .dno_Stranice {
+            background-color: #f7f7f7;
+            height: auto; /* Prilagodljivo visini sadržaja */
+            padding: 20px; 
+            display: flex; /* Postavlja fleksibilni kontejner */
+            justify-content: space-between; /* Razmak između tekstualnog dijela i dugmeta */
+            align-items: center; /* Vertikalno centriranje */
+            flex-wrap: wrap;
+        
+        }
+        .div1 {
+            display: flex;
+            flex-direction: column; /* Elementi unutar teksta idu jedan ispod drugog */
+            max-width: 50%; /* Postavlja širinu za tekst */
+        }
+
+        .div1_1 {
+            color: #0a0a0a;
+            font-size: 26px;
+            margin-bottom: 10px; /* Razmak između naslova i drugog dijela teksta */
+        }
+
+        .div1_2 {
+            color: #303030;
+            font-size: 16px;
+        }
+        /*Stil za žuto dugme na kraju stranice*/
+        .zutoDugme {
+            margin: 30px 90px 0px 0px;	
+            padding: 35px 15px 0px;
+        }
+
+        .upit1 {
+            background-color: rgba(255, 222, 8, 0.929);
+            font-size: 14px;
+            padding: 14px 20px;
+            border: none; /* Uklanja okvir dugmeta */
+            cursor: pointer; /* Dodaje kursor u obliku ruke */
+        }
+
+        .upit1:hover {
+            background-color: #ffd600; /* Lagana promjena boje pri hover efektu */
+        }
+        /* Stil za div prikaži/sakrij */
+        #kontakt-container {
+            text-align: center;
+            margin: 20px;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        #toggleButton {
+            background-color: white;
+            color: #0d1d4e;
+            border-color: #0d1d4e;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+          
+        }
+
+        #toggleButton:hover {
+            background-color:#0d1d4e;
+            color: white ;
+        }
+
+        #kontaktInfo {
+            margin-top: 20px;
+            display: none; /* Sakriva sadržaj po defaultu */
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        #kontaktLink {
+            background-color: #0d1d4e;
+            color: white;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+        }
+
+        /* Stil za podnožje stranice*/
+        .footer {
+            background-color: #020c1b; /* Boja pozadine */
+            padding: 14px 0px 0px; /* Gornji padding za footer */
+            display: flex; /* Fleksibilni kontejner */
+            flex-direction: column; /* Postavlja elemente u kolonu */
+        }
+
+        .left {
+            font-size: 14px; /* Veličina fonta za tekst lijevo */
+            padding: 9.8px; /* Padding za div s tekstom lijevo */
+            color: #ddd; /* Boja teksta */
+            text-align: left;
+        }
+
+        .center {
+            font-size: 14px; /* Veličina fonta za tekst ispod */
+            padding: 9.8px; /* Padding za div s tekstom ispod */
+            color: #93a1a7; /* Boja teksta */
+            text-align: center; /* Centriranje teksta */
+        }
+
+        
+        @media (max-width: 1024px) {
+            .header-row {
+                flex-direction: column; /* Raspoređuje elemente u kolone na manjim ekranima */
+            
+            }
+            .logo img {
+                max-height: 50px; /* Smanjuje visinu loga */
+                margin-right: 20px; /* Smanjuje desnu marginu */
+            }
+            .header-row .menu-item a {
+                font-size: 12px; /* Smanjuje veličinu fonta za linkove u meniju */
+                padding: 8px 5px; /* Smanjuje padding za linkove */
+            }
+            .facebook-btn {
+                padding: 8px 20px; /* Smanjuje padding za Facebook dugme */
+            }
+            .footer {
+                padding: 10px 0; /* Smanjuje padding za footer */
+            }
+            .textISlika {
+                flex-direction: column; /* Promjena u kolonu */
+                gap: 20px; /* Manji razmak */
+            }
+
+            .slika_nekoliko_vrata {
+                max-width: 100%; /* Slika zauzima punu širinu */
+            }
+
+            .protuprovalnaVrata{
+                font-size: 36px; /* Manja veličina teksta */
+            }
+
+            .SKAPI {
+                font-size: 14px; /* Manja veličina teksta */
+            }
+
+            .višeInfo {
+                font-size: 14px; /* Manja veličina fonta za dugme */
+            }
+            .profesionalnaUsluga {
+                margin: 0px 40px 30px 100px;
+                font-size: 40px;
+            }
+            .galerija, .galerija2 {
+                grid-template-columns: repeat(2, 1fr); /* 2 bloka za tablete */
+            }
+            /* Responzivnost za modele vrata (4 komada vrata) */
+            .modeli-vrata {
+                grid-template-columns: repeat(2, 1fr); /* 2 modela vrata za tablete */
+                gap: 15px; 
+            }
+
+            .vrata {
+                padding: 6px; 
+            }
+
+            .vrata img {
+                width: 160px; 
+                height: 300px; 
+            }
+
+            .vrata a {
+                font-size: 14px; /* Manji font za tablete */
+                margin:10px;
+            }
+            #modeliVrata {
+                font-size: 36px;
+            }
+            .zutoDugme {
+                margin: 20px 0;
+            }
+
+            .upit1 {
+                font-size: 16px; /* Veći font za tablete */
+            }
+
+            #toggleButton, #kontaktLink {
+                font-size: 18px; /* Veći font na tabletima */
+            }
+
+        }
+        @media (max-width: 768px) {
+            .header-row .menu-item a {
+                font-size: 10px; /* Dodatno smanjenje veličine fonta za linkove u meniju */
+            }
+
+            .logo img {
+                max-height: 40px; /* Dodatno smanjenje visine loga */
+            }
+            .textISlika {
+                flex-direction: column; /* Promjena u kolonu */
+                gap: 10px; /* Manji razmak između elemenata */
+            }
+
+            .slika_nekoliko_vrata {
+                max-width: 100%; /* Slika zauzima punu širinu */
+            }
+
+            .protuprovalnaVrata {
+                font-size: 24px; 
+            }
+            .SKAPI {
+                font-size: 12px; 
+            }
+            .višeInfo {
+                font-size: 14px; /* Manja veličina fonta za dugme */
+                padding: 10px 12px; /* Manje padding za dugme */
+            }
+            .profesionalnaUsluga {
+                font-size: 24px;
+            }
+            .galerija, .galerija2 {
+                grid-template-columns: 1fr; /* 1 blok za mobilne uređaje */
+            }
+            .modeli-vrata {
+                grid-template-columns: 1fr; /* 1 model vrata za mobilne uređaje */
+                gap: 10px; 
+            }
+            .vrata {
+                padding: 4px; 
+            }
+            .vrata img {
+                width: 140px; 
+                height: 260px; 
+            }
+            .vrata a {
+                font-size: 12px; /* Još manji font za mobilne uređaje */
+                margin: 6px;
+            }
+            #modeliVrata {
+                font-size: 24px;
+            }
+            .div1_1 h3 {
+                font-size: 20px; /* Manji font na telefonima */
+            }
+
+            .div1_2 {
+                font-size: 14px; /* Manji font na telefonima */
+            }
+
+            .zutoDugme {
+                margin: 20px 0;
+                padding: 10px;
+            }
+
+            .upit1 {
+                font-size: 16px;
+                padding: 12px 18px; /* Manje padding na telefonima */
+            }
+
+            #toggleButton {
+                font-size: 16px; /* Manji font na telefonima */
+            }
+
+            #kontaktLink {
+                font-size: 16px; /* Manji font na telefonima */
+            }
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Prvi red: Logo i informacije -->
+        <div class="header-row">
+            <div class="logo">
+                <a href="index.html"> <img src="images/skapi_logo_2.png" alt="Skapi Logo"></a>
+            </div>
+    
+            <div class="info-container">
+                <!-- Lokacija -->
+                <div class="info-section">
+                    <img src="images/lokacija.png" alt="GPS Lokacija">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Lokacija</span></div>
+                        <div><span style="color: rgb(120,120,120);">RK Sjenjak pp. 9 suteren</span></div>
+                    </div>
+                </div>
+    
+                <!-- Radno vrijeme -->
+                <div class="info-section">
+                    <img src="images/radno_vrijeme.png" alt="Radno vrijeme">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Radno vrijeme:</span></div>
+                        <div><span style="color: rgb(120,120,120);">08:00-17:00</span></div>
+                    </div>
+                </div>
+    
+                <!-- Telefon -->
+                <div class="info-section">
+                    <img src="images/poziv.png" alt="Pozovite nas">
+                    <div>
+                        <div><span style="color: rgb(14, 94, 243);">Pozovite nas</span></div>
+                        <div><span style="color: rgb(120,120,120);">+38761164096</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Drugi red: Padajući meni sa 8 divova -->
+        <div class="header-row">
+            <div class="menu-item">
+                <a href="index.html">🏠Home</a>
+            </div>
+            <div class="menu-item">
+                <a href="onama.html">O Nama</a>
+            </div>
+            <div class="menu-item">
+                <a href="galerija.html">Galerija Ugrađenih Vrata</a>
+            </div>
+            <div class="menu-item">
+                <a href="servis.html">Servis</a>
+            </div>
+            <div class="menu-item">
+                <a href="skapi.html">❤️Skapi Vrata</a>
+            </div>
+            <div class="menu-item">
+                <a href="novosti.html">Novosti</a>
+            </div>
+            <div class="menu-item">
+                <a href="kontakt.html">Kontakt</a>
+            </div>
+            <div class="menu-item">
+                <button class="facebook-btn" onclick="window.location.href='https://www.facebook.com/skapivrata';">Facebook</button>
+            </div>
+        </div>
+    </header>
+    
+
+
+    <!-- Slika sa tekstom i dugmetom -->
+    <div class="naslovna">
+        <div class="naslovnaSadrzaj">
+            <h1>Sigurna i kvalitetna<br>Protuprovalna Vrata</h1>
+            <a href="kontakt.html" class="btn">NAŠA PONUDA</a>
+        </div>
+    </div>
+    <div class="prazanDiv"></div>
+    
+    <!--Div za sliku i tekst-->
+    <div class="textISlika">
+        <div class="text">
+            <h2 class="protuprovalnaVrata">Protuprovalna vrata</h2>
+            <p class="SKAPI">SKAPI</p>
+            <p class="paragrafi">Bavimo se prodajom, ugradnjom te servisom <span style="color:#be1f24">protuprovalnih vrata.</span> Počeci našeg poslovanja kreću još od 1999 godine kad je stvorena jezgra poslovanja temeljena na uslugama ugradnje blindiranih vrata i servisa istih.</p>
+            <p class="paragrafi">Primjenjujući savremen način poslovanja i visoku kvalitetu proizvoda uz dugogodišnje iskustvo te pružanje kompletne usluge našim strankama profilirali smo se na tržištu kao vodeći specijalisti za ugradnju i servis protuprovalnih vrata.</p>
+            <p class="paragrafi">U saradnji sa našim partnerima kao cilj je ponuditi klijentima pouzdana, kvalitetna a cijenom prihvatljiva protuprovalna vrata, te vrhunsku uslugu. Povoljne cijene, odlična kvaliteta, brzina isporuke, pridržavanje dogovora kao i dogovorenih rokova, te kompletna usluga naš je cilj. Najviše se ponosimo onim što je najvrijednije a to je naše iskustvo za sve vrste radova vezanih uz vrata i sličnu problematiku.</p>
+            <p class="paragrafi">Osim ugradnje protuprovalnih vrata, otvaranje vrata, servis vrata i zamjena svih vrsta brava je usluga koju nudimo najčešće kroz
+                <em>
+                    <strong style="color: #0a0a0a">hitne intervencije</strong>
+                </em>. Iako, ne spada svaka usluga otvaranja vrata u hitne intervencije. O tome najviše ovisi koliko Vam je hitno potrebno otvoriti vrata.
+            </p>
+            <p class="paragrafi">Otvaramo vrata radi raznoraznih uzroka poput zaboravljanja ključa u stanu, kući, neispravnost brave radi koje se vrata ne mogu otključati te ukoliko Vam ključ ostane zaglavljen u vratima.</p>
+            <button class="višeInfo" onclick="window.location.href='onama.html'" title="O nama">Više info</button>
+        </div>
+        <div class="slika_nekoliko_vrata">
+            <img src="images/nekolikoVrata.jpg" alt="Protuprovalna vrata">
+        </div>
+    </div>
+    <br>
+    
+    <!-- Div za podnaslov profesioalna usluga-->
+    <div class="wd-heading">
+        <h2 class="profesionalnaUsluga">Profesionalna Usluga</h2>
+    </div>
+        <!--DIV Galerija za 6 slika -->
+        <div class="galerija">
+            <!-- Prvi blok: Prodaja -->
+            <div class="blok">
+                <div class="slika">
+                    <img src="images/prodaja.jpg" alt="Prodaja">
+                </div>
+                <div class="sadrzaj">
+                    <h2><a href="skapi.html">Prodaja</a></h2>
+                    <p>modernih protuprovalnih vrata</p>
+                </div>
+            </div>
+
+            <!-- Drugi blok: Servis -->
+            <div class="blok">
+                <div class="slika">
+                    <img src="images/servis.jpg" alt="Servis">
+                </div>
+                <div class="sadrzaj">
+                    <h2><a href="servis.html">Servis</a></h2>
+                    <p>protuprovalnih vrata</p>
+                </div>
+            </div>
+
+            <!-- Treći blok: Intervencija -->
+            <div class="blok">
+                <div class="slika">
+                    <img src="images/intervencija.jpg" alt="Intervencija">
+                </div>
+                <div class="sadrzaj">
+                    <h2><a href="onama.html">Intervencija</a></h2>
+                    <p>hitna intervencija otvaranja vrata</p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="galerija2">
+        <!-- Četvrti blok: Ugradnja -->
+        <div class="blok-ugradnja">
+            <div class="slika">
+                <img src="images/ugradnja.jpg" alt="Ugradnja protuprovalnih vrata">
+            </div>
+            <div class="sadrzaj">
+                <h2><a href="galerija.html">Ugradnja</a></h2>
+                <p>protuprovalnih vrata</p>
+            </div>
+        </div>
+
+        <!-- Peti blok: Otključavanje -->
+        <div class="blok-otkljucavanje">
+            <div class="slika">
+                <img src="images/otkljucavanje.jpg" alt="Otključavanje protuprovalnih vrata">
+            </div>
+            <div class="sadrzaj">
+                <h2><a href="servis.html">Otključavanje</a></h2>
+                <p>protuprovalnih vrata</p>
+            </div>
+        </div>
+
+        <!-- Šesti blok: Zamjena -->
+        <div class="blok-zamjena">
+            <div class="slika">
+                <img src="images/zamjena.jpg" alt="Zamjena brava na protuprovalnim vratima">
+            </div>
+            <div class="sadrzaj">
+                <h2><a href="onama.html">Zamjena</a></h2>
+                <p>brave na protuprovalnim vratima</p>
+            </div>
+        </div>
+    </div>
+<!-- ------------------------------------------------ -->
+    <div class="prazanDiv"></div>
+
+    <!-- Modeli vrata (4 modela vrata / 4 slike)-->
+    <div> 
+        <h2 id="modeliVrata">Modeli Vrata </h2>
+        
+    </div>
+
+    <div class="modeli-vrata">
+        <div class="vrata">
+            <img src="images/strong-plus.jpg" alt="Strong Plus">
+            <br>
+            <a href="skapi.html">Strong Plus</a>
+        </div>
+        <div class="vrata">
+            <img src="images/strong.jpg" alt="Strong">
+            <br>
+            <a href="skapi.html"> Strong</a>
+        </div>
+        <div class="vrata">
+            <img src="images/maxima.jpg" alt="Maxima">
+            <br>
+            <a href="skapi.html"> Maxima</a>
+        </div>
+        <div class="vrata">
+            <img src="images/standard.png" alt="Standard">
+            <br>
+            <a href="skapi.html"> Standard</a>
+        </div>
+    </div>
+    <div style="height: 100px;"></div>
+
+    <div class="statistika">
+        <div class="overlay"></div>
+        <div class="statistika-content">
+            <div class="naslov">Statistika</div>
+            <div class="red">
+                <div class="kategorija">
+                    <img src="images/trofej.png" alt="Iskustvo">
+                    <div class="broj">23</div>
+                    <div class="opis">Iskustvo</div>
+                </div>
+                <div class="kategorija">
+                    <img src="images/intrevencije.png" alt="Intervencije">
+                    <div class="broj">1024</div>
+                    <div class="opis">Intervencije</div>
+                </div>
+                <div class="kategorija">
+                    <img src="images/klijenti.png" alt="Klijenti">
+                    <div class="broj">2245</div>
+                    <div class="opis">Klijenti</div>
+                </div>
+                <div class="kategorija">
+                    <img src="images/modeli.png" alt="Modeli">
+                    <div class="broj">4</div>
+                    <div class="opis">Modeli</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="dno_Stranice">
+            <div class="div1">
+                <div class="div1_1"><h3 class="h3">Trebate naše usluge ?</h3></div>
+                <div class="div1_2">Pišite nam ili nas pozovite, mi smo tu zbog Vas!</div>
+            </div>
+            <div class="zutoDugme">
+                <button class="upit1" onclick="window.location.href='kontakt.html';">Popunite upit</button>
+            </div>
+        </div>
+
+
+        <!--Div za kontakt-->
+        <div id="kontakt-container">
+            <button id="toggleButton">Kako možete do nas?</button>
+            <div id="kontaktInfo">
+                <button id="kontaktLink" onclick="window.location.href='kontakt.html';">KONTAKT</button>
+            </div>
+        </div>
+    
+    
+
+        <!--Podnožje stranice-->
+        <footer class="footer">
+            <div class="left">Powered by Laufer</div>
+            <div class="center">© 2022 SKAPI All rights reserved.</div>
+        </footer>
+    
+    <script>
+        
+        // Dohvatanje dugmeta i info dijela
+        const toggleButton = document.getElementById("toggleButton");
+        const kontaktInfo = document.getElementById("kontaktInfo");
+
+        // Dodavanje događaja za klik na dugme
+        toggleButton.addEventListener("click", () => {
+            if (kontaktInfo.style.display === "none" || kontaktInfo.style.display === "") {
+                kontaktInfo.style.display = "block"; // Prikazuje sadržaj
+                
+            } else {
+                kontaktInfo.style.display = "none"; // Sakriva sadržaj
+                toggleButton.textContent = "Kako možete do nas?"; // Vraća originalni tekst dugmeta
+            }
+        });
+    </script>
+   
+</body>
+</html>
